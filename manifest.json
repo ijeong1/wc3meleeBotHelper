@@ -1,0 +1,35 @@
+{
+  "name": "Wc3Melee Bot Helper",
+  "description" : "Highlights blacklist players",
+  "version": "1.0",
+  "page_action": {
+    "default_icon": {
+      "16": "images/cc16.png",
+      "32": "images/cc32.png"
+      },
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "images/cc16.png",
+    "32": "images/cc32.png"
+  },
+  "permissions": [
+    "http://64.193.63.211/bot/*",
+    "storage",
+    "declarativeContent"
+  ],
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": ["style.css"],
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": ["content_script.js"],
+      "matches": ["http://64.193.63.211/bot/*"],
+      "run_at": "document_idle"
+    }
+  ]
+}
